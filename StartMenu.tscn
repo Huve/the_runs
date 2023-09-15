@@ -55,3 +55,4 @@ texture = ExtResource("2_hsjbc")
 stretch_mode = 3
 
 [connection signal="pressed" from="CanvasLayer/ButtonHighScores" to="." method="_on_high_scores_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonNewGame" to="." method="_on_button_new_game_pressed"]
