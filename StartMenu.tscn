@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1y7l6u5waa7r"]
+
+[ext_resource type="Script" path="res://StartMenu.gd" id="1_ji4pt"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_ji4pt")
+
+[node name="ButtonHighScores" type="Button" parent="."]
+offset_top = 50.0
+offset_right = 99.0
+offset_bottom = 81.0
+text = "High Scores"
+
+[node name="ButtonNewGame" type="Button" parent="."]
+offset_right = 90.0
+offset_bottom = 31.0
+text = "New game"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="ButtonHighScores" to="." method="_on_high_scores_pressed"]

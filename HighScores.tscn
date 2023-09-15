@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://f0frtcm2yu66"]
+
+[ext_resource type="Script" path="res://HighScores.gd" id="1_p6v5d"]
+
+[node name="HighScores" type="Node2D"]
+script = ExtResource("1_p6v5d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "High Scores"
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 45.0
+grow_vertical = 0
+text = "Back"
+
+[node name="HighScoreContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 150.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HighScoreContainer"]
+layout_mode = 2
+text = "  "
+
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
