@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 # Load the high scores and game scenes
 var high_scores_scene = preload("res://HighScores.tscn")
