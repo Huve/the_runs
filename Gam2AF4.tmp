@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl8gh5ddkrxvj"]
+[gd_scene load_steps=13 format=3 uid="uid://cl8gh5ddkrxvj"]
 
-[ext_resource type="Texture2D" uid="uid://c7oq3r8ukfllg" path="res://images/spritesheet-main.png" id="1_gxkiw"]
 [ext_resource type="Script" path="res://Goal2D.gd" id="1_mqn7i"]
 [ext_resource type="Script" path="res://BasicTileMap.gd" id="2_ema4a"]
 [ext_resource type="Texture2D" uid="uid://xkxkqh0xsy5m" path="res://images/wall1.png" id="2_fmdar"]
@@ -1189,12 +1188,5 @@ libraries = {
 position = Vector2(431, 228)
 script = ExtResource("1_mqn7i")
 
-[node name="Sprite2D" type="Sprite2D" parent="ToiletArea2D"]
-texture = ExtResource("1_gxkiw")
-region_enabled = true
-region_rect = Rect2(16.5463, 15.8548, 14.6763, 19.1921)
-
 [node name="ToiletCollision2D" type="CollisionShape2D" parent="ToiletArea2D"]
 shape = SubResource("RectangleShape2D_v6yb8")
-
-[connection signal="body_entered" from="ToiletArea2D" to="PlayerCharacterBody2D" method="_on_toilet_area_2d_body_entered"]

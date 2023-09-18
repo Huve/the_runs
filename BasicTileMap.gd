@@ -12,8 +12,8 @@ func _ready():
 
 func generate_level():
 	# Define the size of the level (adjust as needed)
-	var level_width = 100
-	var level_height = 50
+	var level_width = 40
+	var level_height = 20
 
 	# Clear existing tiles
 	clear()
@@ -33,7 +33,7 @@ func generate_level():
 		set_cell(0, Vector2i(level_width - 1, y), 0, Vector2i(11, 12))
 
 	# Generate random obstacles
-	for x in range(level_width * level_height*2):  # Adjust density as needed
+	for x in range(level_width * level_height*5):  # Adjust density as needed
 		var obstacle_x = randi() % (level_width - 2) + 1
 		var obstacle_y = randi() % (level_height - 2) + 1
 		set_cell(0, Vector2i(obstacle_x, obstacle_y), 1, Vector2i(12, 6))
