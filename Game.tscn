@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl8gh5ddkrxvj"]
+[gd_scene load_steps=9 format=3 uid="uid://cl8gh5ddkrxvj"]
 
-[ext_resource type="Script" path="res://PlayerBody2D.gd" id="1_7tgpo"]
 [ext_resource type="Script" path="res://BasicTileMap.gd" id="2_ema4a"]
 [ext_resource type="Texture2D" uid="uid://xkxkqh0xsy5m" path="res://images/wall1.png" id="2_fmdar"]
+[ext_resource type="Texture2D" uid="uid://bk6ncyggcjy55" path="res://images/obs1.png" id="4_3w5l3"]
+[ext_resource type="Texture2D" uid="uid://d07fxo8ayrsaq" path="res://images/ground1.png" id="5_h83tr"]
+[ext_resource type="Script" path="res://PlayerAnimatedSprite2D.gd" id="6_jtvdw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_babyd"]
 texture = ExtResource("2_fmdar")
@@ -375,10 +377,21 @@ navigation_layer_0/layers = 3
 navigation_layer_1/layers = 3
 sources/0 = SubResource("TileSetAtlasSource_babyd")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nkt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3w5l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h83tr")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
-[node name="PlayerBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_7tgpo")
+[node name="Game" type="Node2D"]
 
 [node name="Goal2D" type="StaticBody2D" parent="."]
 
@@ -386,3 +399,11 @@ script = ExtResource("1_7tgpo")
 tile_set = SubResource("TileSet_g6sqg")
 format = 2
 script = ExtResource("2_ema4a")
+
+[node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(148, 148)
+sprite_frames = SubResource("SpriteFrames_7nkt5")
+animation = &"run"
+frame = 1
+frame_progress = 0.174443
+script = ExtResource("6_jtvdw")
