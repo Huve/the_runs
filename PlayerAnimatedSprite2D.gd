@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-const SPEED = 100 # pixels per second
+const SPEED = 200 # pixels per second
 
 var velocity = Vector2.ZERO
 
@@ -21,6 +21,11 @@ func _physics_process(delta):
 
 	# Apply the input vector to the velocity.
 	velocity = velocity.lerp(input_vector * SPEED, delta)
+	if velocity.length() > 0:
+		self.play("running")
+	else:
+		self.stop()
+		
 
 	# Move the player.
 	set_position(get_position() + velocity * delta)
