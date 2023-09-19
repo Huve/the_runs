@@ -31,9 +31,12 @@ func generate_level():
 	for x in range(level_width * level_height):  # Adjust density as needed
 		var chance = randf()
 		if chance > .90:
-			var obstacle_x = randi() % (level_width)
-			var obstacle_y = randi() % (level_height)
+			var obstacle_x = randi() % (level_width) - 1
+			var obstacle_y = randi() % (level_height) - 1
 			if obstacle_x < 2 or obstacle_y < 2:
 				pass
+			elif chance > .96:
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 5))
 			else:
-				set_cell(0, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 5))
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 3))
+				
