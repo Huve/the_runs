@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var GameInfo = get_node("/root/GameInfoNode")
 
 const SPEED = 200.0
-var STARTING_POINTS = 60
 
 var collision_shape: CollisionShape2D
 
@@ -36,10 +35,10 @@ func _physics_process(delta):
 	velocity = input * SPEED
 	
 	# Move the character.
-	var collision = move_and_collide(velocity * delta)
+	var _collision = move_and_collide(velocity * delta)
 	#if collision:
 	#		print("I collided with ", collision.get_collider().name)
 
-func _on_toilet_area_2d_body_entered(body):
+func _on_toilet_area_2d_body_entered(_body):
 	GameInfo.total_score = GameInfo.total_score + GameInfo.current_level_score
 	get_tree().change_scene_to_file("res://Game.tscn")

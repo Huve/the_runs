@@ -190,7 +190,7 @@ offset_top = 83.0
 offset_right = 499.0
 offset_bottom = 106.0
 
-[node name="LevelScoreLabel" type="Label" parent="GameControl"]
+[node name="LevelTimeLabel" type="Label" parent="GameControl"]
 layout_mode = 0
 offset_left = 458.0
 offset_top = 47.0
@@ -199,8 +199,12 @@ offset_bottom = 70.0
 
 [node name="LevelTimer" type="Timer" parent="GameControl"]
 
+[node name="LossTimer" type="Timer" parent="GameControl"]
+one_shot = true
+
 [node name="GameInfoNode" type="Node" parent="."]
 script = ExtResource("8_2mm38")
 
 [connection signal="body_entered" from="ToiletArea2D" to="PlayerCharacterBody2D" method="_on_toilet_area_2d_body_entered"]
 [connection signal="timeout" from="GameControl/LevelTimer" to="GameControl" method="_on_level_timer_timeout"]
+[connection signal="timeout" from="GameControl/LossTimer" to="GameControl" method="_on_loss_timer_timeout"]

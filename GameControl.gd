@@ -2,7 +2,8 @@ extends Control
 
 @onready var GameInfo = get_node("/root/GameInfoNode")
 
-var level_score = 20
+var level_score = 10
+var level_time = 5
 
 
 func countdown_timer(score: float, time: float) -> int:
@@ -20,11 +21,15 @@ func _ready():
 	level_timer.wait_time = 1.0
 	level_timer.start()
 	
-	var level_score_text = "Time: " + str(level_score)
-	get_node("LevelScoreLabel").set_text(str(level_score_text))
+	var loss_timer = get_node("LossTimer")
+	loss_timer.wait_time = level_time
+	loss_timer.start()
+	
+	var level_time_text = "Time: " + str(level_time)
+	get_node("LevelTimeLabel").set_text(level_time_text)
 	
 	var game_score_text = "Total score: " + str(GameInfo.total_score)
-	get_node("CurrentScoreLabel").set_text(str(game_score_text))
+	get_node("CurrentScoreLabel").set_text(game_score_text)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,9 +41,14 @@ func _process(_delta):
 func _on_level_timer_timeout():
 	GameInfo.total_score = countdown_timer(GameInfo.total_score, 1)
 	level_score = countdown_timer(level_score, 1)
+	level_time = countdown_timer(level_time, 1)
 	GameInfo.current_level_score = level_score
 	# Update the text of the Label node.
 	var game_score_text = "Total score: " + str(GameInfo.total_score)
 	get_node("CurrentScoreLabel").set_text(str(game_score_text))
-	var level_score_text = "Time: " + str(level_score)
-	get_node("LevelScoreLabel").set_text(str(level_score_text))
+	var level_time_text = "Time: " + str(level_time)
+	get_node("LevelTimeLabel").set_text(str(level_time_text))
+
+
+func _on_loss_timer_timeout():
+	get_tree().change_scene_to_file("res://LossScene.tscn")
