@@ -3,6 +3,7 @@ extends Control
 var label: Label
 var game_time: int
 var STARTING_POINTS = 60
+var TOTAL_SCORE = 0
 
 func countdown_timer(game_time: float) -> float:
 	# Update the game time.
@@ -18,11 +19,9 @@ func _ready():
 	label = Label.new()
 	add_child(label)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 		
 	# Update the game time.
 	game_time = countdown_timer(_delta)
-	# Update the text of the Label node
 	label.set_text(str(game_time))

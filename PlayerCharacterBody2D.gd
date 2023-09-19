@@ -41,4 +41,4 @@ func _physics_process(delta):
 		print("I collided with ", collision.get_collider().name)
 
 func _on_toilet_area_2d_body_entered(body):
-	print("entered")
+	get_tree().change_scene_to_file("res://Game.tscn")

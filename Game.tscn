@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl8gh5ddkrxvj"]
+[gd_scene load_steps=15 format=3 uid="uid://cl8gh5ddkrxvj"]
 
 [ext_resource type="Texture2D" uid="uid://cut78vu6xcbif" path="res://images/spritesheet-main.png" id="1_gxkiw"]
 [ext_resource type="Script" path="res://Goal2D.gd" id="1_mqn7i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://PlayerCharacterBody2D.gd" id="3_1beor"]
 [ext_resource type="Texture2D" uid="uid://bp5dwludfpd4s" path="res://images/Player-walking.png" id="4_gey70"]
 [ext_resource type="Script" path="res://GameControl.gd" id="6_7lp01"]
+[ext_resource type="Script" path="res://ScoreNode.gd" id="7_iey11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ykvs"]
 texture = ExtResource("1_gxkiw")
@@ -180,5 +181,14 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_7lp01")
+
+[node name="ScoreNode" type="Node2D" parent="."]
+script = ExtResource("7_iey11")
+
+[node name="CurrentScoreLabel" type="Label" parent="ScoreNode"]
+offset_left = 479.0
+offset_top = 10.0
+offset_right = 519.0
+offset_bottom = 33.0
 
 [connection signal="body_entered" from="ToiletArea2D" to="PlayerCharacterBody2D" method="_on_toilet_area_2d_body_entered"]
