@@ -1,27 +1,44 @@
 extends Control
 
-var label: Label
-var game_time: int
-var STARTING_POINTS = 60
-var TOTAL_SCORE = 0
+@onready var GameInfo = get_node("/root/GameInfoNode")
 
-func countdown_timer(game_time: float) -> float:
+var level_score = 20
+
+
+func countdown_timer(score: float, time: float) -> int:
 	# Update the game time.
-	# Return the updated game time
-	STARTING_POINTS -= game_time
-	if STARTING_POINTS < 1:
-		STARTING_POINTS = 0
-	return STARTING_POINTS
+	score -= time
+	if score < 1:
+		score = 0
+	return int(score)
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tre	e for the first time.
 func _ready():
 	# Create a Label node and add it to the scene tree.
-	label = Label.new()
-	add_child(label)
-
+		# Set the text of the Label node to the current game score.
+	var level_timer = get_node("LevelTimer")
+	level_timer.wait_time = 1.0
+	level_timer.start()
+	
+	var level_score_text = "Time: " + str(level_score)
+	get_node("LevelScoreLabel").set_text(str(level_score_text))
+	
+	var game_score_text = "Total score: " + str(GameInfo.total_score)
+	get_node("CurrentScoreLabel").set_text(str(game_score_text))
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-		
+	pass
 	# Update the game time.
-	game_time = countdown_timer(_delta)
-	label.set_text(str(game_time))
+
+
+func _on_level_timer_timeout():
+	GameInfo.total_score = countdown_timer(GameInfo.total_score, 1)
+	level_score = countdown_timer(level_score, 1)
+	GameInfo.current_level_score = level_score
+	# Update the text of the Label node.
+	var game_score_text = "Total score: " + str(GameInfo.total_score)
+	get_node("CurrentScoreLabel").set_text(str(game_score_text))
+	var level_score_text = "Time: " + str(level_score)
+	get_node("LevelScoreLabel").set_text(str(level_score_text))
