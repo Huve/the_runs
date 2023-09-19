@@ -8,9 +8,15 @@ script = ExtResource("1_p6v5d")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "High Scores"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Highest Poop Score"
 
 [node name="BackButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
@@ -22,11 +28,21 @@ grow_vertical = 0
 text = "Back"
 
 [node name="HighScoreContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 150.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_right = 75.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/HighScoreContainer"]
 layout_mode = 2
 text = "  "
+horizontal_alignment = 3
 
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]

@@ -7,6 +7,7 @@ func _ready():
 	
 	var final_score = GameInfo.total_score
 	var final_score_text = "Final score: " + str(final_score)
+	GameInfo.save_high_score()
 	get_node("CanvasLayer/EndScoreLabel").set_text(final_score_text)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

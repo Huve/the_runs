@@ -185,6 +185,7 @@ offset_bottom = 41.0
 script = ExtResource("6_7lp01")
 
 [node name="CurrentScoreLabel" type="Label" parent="GameControl"]
+layout_mode = 0
 offset_left = 459.0
 offset_top = 83.0
 offset_right = 499.0
