@@ -3,12 +3,13 @@ extends TileMap
 var collision_shape: CollisionShape2D
 
 func _ready():
-	generate_level()
-
-func generate_level():
-	# Define the size of the level (adjust as needed)
 	var level_width = 40
 	var level_height = 20
+	generate_level(level_width, level_height)
+	#randomize_goal_location(level_width, level_height)
+	
+
+func generate_level(level_width, level_height):
 
 	# Clear existing tiles
 	clear()
@@ -39,4 +40,4 @@ func generate_level():
 				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 5))
 			else:
 				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 3))
-				
+

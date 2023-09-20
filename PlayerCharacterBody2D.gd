@@ -36,8 +36,8 @@ func _physics_process(delta):
 	
 	# Move the character.
 	var _collision = move_and_collide(velocity * delta)
-	#if collision:
-	#		print("I collided with ", collision.get_collider().name)
+	#if _collision:
+	#	print("I collided with ", _collision.get_collider().name)
 
 func _on_toilet_area_2d_body_entered(_body):
 	GameInfo.total_score = GameInfo.total_score + GameInfo.current_level_score
