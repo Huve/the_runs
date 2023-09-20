@@ -88,7 +88,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0ykvs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5vdo"]
-size = Vector2(9, 12)
+size = Vector2(6, 8)
 
 [sub_resource type="Animation" id="Animation_d5n75"]
 length = 0.6
@@ -171,7 +171,7 @@ hframes = 8
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterBody2D"]
-position = Vector2(24.5, 26)
+position = Vector2(25, 26)
 shape = SubResource("RectangleShape2D_b5vdo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCharacterBody2D"]
