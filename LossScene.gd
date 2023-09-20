@@ -17,3 +17,8 @@ func _process(_delta):
 func _on_main_menu_button_pressed():
 	GameInfo.reset()
 	get_tree().change_scene_to_file("res://StartMenu.tscn")
+
+
+func _on_retry_button_pressed():
+	GameInfo.reset()
+	get_tree().change_scene_to_file("res://Game.tscn")
