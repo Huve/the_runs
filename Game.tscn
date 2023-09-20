@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl8gh5ddkrxvj"]
+[gd_scene load_steps=18 format=3 uid="uid://cl8gh5ddkrxvj"]
 
 [ext_resource type="Texture2D" uid="uid://cut78vu6xcbif" path="res://images/spritesheet-main.png" id="1_gxkiw"]
 [ext_resource type="Script" path="res://Goal2D.gd" id="1_mqn7i"]
@@ -129,6 +129,22 @@ _data = {
 "run": SubResource("Animation_y0aie")
 }
 
+[sub_resource type="Curve" id="Curve_ksc1u"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0, -500), 0.0, 0.0, 0, 0, Vector2(0.571429, 78.9474), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_y5fe7"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6qerg"]
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.461538, 178.947), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6yb8"]
 
 [node name="Game" type="Node2D"]
@@ -163,6 +179,25 @@ libraries = {
 "": SubResource("AnimationLibrary_pnaij")
 }
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PlayerCharacterBody2D"]
+position = Vector2(23, 27)
+amount = 50
+lifetime = 5.0
+explosiveness = 0.08
+emission_shape = 1
+emission_sphere_radius = 8.76
+gravity = Vector2(0, 0)
+orbit_velocity_curve = SubResource("Curve_ksc1u")
+linear_accel_min = 2.02
+linear_accel_max = 16.16
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color = Color(0.486275, 0.305882, 0.0588235, 1)
+hue_variation_min = -0.02
+hue_variation_max = 0.14
+hue_variation_curve = SubResource("Curve_y5fe7")
+anim_speed_curve = SubResource("Curve_6qerg")
+
 [node name="ToiletArea2D" type="Area2D" parent="."]
 position = Vector2(431, 228)
 script = ExtResource("1_mqn7i")
@@ -178,8 +213,8 @@ shape = SubResource("RectangleShape2D_v6yb8")
 [node name="GameControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1.0
-offset_top = 1.0
+offset_left = 5.0
+offset_top = 19.0
 offset_right = 41.0
 offset_bottom = 41.0
 script = ExtResource("6_7lp01")

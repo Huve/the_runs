@@ -4,7 +4,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	var final_score = GameInfo.total_score
 	var final_score_text = "Final score: " + str(final_score)
 	GameInfo.save_high_score()
