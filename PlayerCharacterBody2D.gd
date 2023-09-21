@@ -40,5 +40,9 @@ func _physics_process(delta):
 	#	print("I collided with ", _collision.get_collider().name)
 
 func _on_toilet_area_2d_body_entered(_body):
-	GameInfo.total_score = GameInfo.total_score + GameInfo.current_level_score
+	print(str(GameInfo.total_score) + " " + str(GameInfo.current_level_score) + " 5")
+	GameInfo.total_score = GameInfo.total_score + GameInfo.current_level_score + 5
+	GameInfo.level_count += 1
+	GameInfo.global_level_time += 5
+
 	get_tree().change_scene_to_file("res://Game.tscn")
