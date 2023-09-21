@@ -7,7 +7,7 @@ var default_total_score = 0
 var total_score = 0
 var current_level_score = 0
 var high_score_path = "user://high_scores.dat"
-var global_level_time = 5
+var global_level_time = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,7 @@ func reset():
 	total_score = default_total_score
 	current_level_score = 0
 	level_count = 1
-	global_level_time = 5
+	global_level_time = 10
 	
 func save_high_score():
 	highest_score = load_high_score()
