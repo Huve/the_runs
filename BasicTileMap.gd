@@ -25,20 +25,44 @@ func generate_level(level_width, level_height):
 
 	# Clear existing tiles
 	clear()
+	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	
+	var sprite_row = GameInfo.level_count * 2 - 1
+	if GameInfo.level_count > 5:
+		sprite_row = rng.randi_range(1,5)
+	
+	var left_wall = Vector2i(8, sprite_row)
+	var bottom_wall = Vector2i(9, sprite_row)
+	var right_wall = Vector2i(10, sprite_row)
+	var top_wall = Vector2i(11, sprite_row)
+	var obstacle_1 = Vector2i(12,sprite_row)
+	var obstacle_2 = Vector2i(13,sprite_row)
+	var obstacle_3 = Vector2i(14,sprite_row)
+	var obstacle_4 = Vector2i(15,sprite_row)
+	
 
 	# Generate ground
 	for x in range(level_width):
 		for y in range(level_height):
-			set_cell(0, Vector2i(x, y), 0, Vector2i(2, 7))
+			var floor_tile = Vector2i(rng.randi_range(1,3), sprite_row)
+			set_cell(0, Vector2i(x, y), 1, floor_tile)
 
 	# Generate walls (top and sides)
 	for x in range(level_width):
-		set_cell(0, Vector2i(x, 0), 0, Vector2i(6, 8))
-		set_cell(0, Vector2i(x, level_height - 1), 0, Vector2i(6, 8))
+		set_cell(1, Vector2i(x, 0), 1, bottom_wall)
+		set_cell(1, Vector2i(x, level_height - 1), 1, top_wall)
 
 	for y in range(level_height):
-		set_cell(0, Vector2i(0, y), 0, Vector2i(6, 8))
-		set_cell(0, Vector2i(level_width - 1, y), 0, Vector2i(6, 8))
+		set_cell(1, Vector2i(0, y), 1, left_wall)
+		set_cell(1, Vector2i(level_width - 1, y), 1, right_wall)
+		
+	# Set corners
+	set_cell(1, Vector2i(0,0), 1, Vector2i(4, sprite_row))
+	set_cell(1, Vector2i(0, level_height-1), 1, Vector2i(7, sprite_row))
+	set_cell(1, Vector2i(level_width-1, 0), 1, Vector2i(5, sprite_row))
+	set_cell(1, Vector2i(level_width-1, level_height-1), 1, Vector2i(6, sprite_row))
 
 	# Generate random obstacles
 	var player_node = get_node("/root/Game/PlayerCharacterBody2D")
@@ -58,10 +82,14 @@ func generate_level(level_width, level_height):
 				pass
 			elif is_loc_of_object(goal_node, obstacle_x, obstacle_y):
 				pass
+			elif obstacle_chance < level_difficulty / 4:
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 1, obstacle_1)
 			elif obstacle_chance < level_difficulty / 3:
-				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 5))
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 1, obstacle_2)
+			elif obstacle_chance < level_difficulty / 2:
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 1, obstacle_3)
 			else:
-				set_cell(1, Vector2i(obstacle_x, obstacle_y), 0, Vector2i(1, 3))
+				set_cell(1, Vector2i(obstacle_x, obstacle_y), 1, obstacle_4)
 
 func randomize_goal_location(w, h):
 	# Randomize where the goal will be
