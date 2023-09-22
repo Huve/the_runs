@@ -69,7 +69,6 @@ func generate_level(level_width, level_height):
 	var player_node = get_node("/root/Game/PlayerCharacterBody2D")
 	var goal_node = get_node("/root/Game/ToiletArea2D") 
 	var level_difficulty = min(GameInfo.level_count*.05, .5)
-	print(level_difficulty)
 	
 	for x in range(level_width * level_height):  # Adjust density as needed
 		var obstacle_chance = randf() 
