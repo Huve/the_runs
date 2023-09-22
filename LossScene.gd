@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var GameInfo = get_node("/root/GameInfoNode")
+#@onready var _loss_animation_player = $LossAnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,6 +9,8 @@ func _ready():
 	var final_score_text = "Final score: " + str(final_score)
 	GameInfo.save_high_score()
 	get_node("CanvasLayer/EndScoreLabel").set_text(final_score_text)
+	var _loss_animation_player = $LossAnimationPlayer
+	_loss_animation_player.play("loss_animation_1")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

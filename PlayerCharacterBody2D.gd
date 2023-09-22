@@ -12,13 +12,13 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("ui_right"):
-		_animation_player.play("run")
+		_animation_player.play("run_right")
 	elif Input.is_action_pressed("ui_left"):
-		_animation_player.play("run")
+		_animation_player.play("run_left")
 	elif Input.is_action_pressed("ui_up"):
-		_animation_player.play("run")
+		_animation_player.play("run_up")
 	elif Input.is_action_pressed("ui_down"):
-		_animation_player.play("run")
+		_animation_player.play("run_down")
 	else:
 		_animation_player.stop()
 
@@ -35,7 +35,8 @@ func _physics_process(delta):
 	velocity = input * SPEED
 	
 	# Move the character.
-	var _collision = move_and_collide(velocity * delta)
+	var _collision = move_and_slide()
+	#move_and_collide(velocity * delta)
 	#if _collision:
 	#	print("I collided with ", _collision.get_collider().name)
 
