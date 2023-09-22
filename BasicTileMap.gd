@@ -28,10 +28,11 @@ func generate_level(level_width, level_height):
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	
-	var sprite_row = GameInfo.level_count * 2 - 1
-	if GameInfo.level_count > 5:
-		sprite_row = rng.randi_range(1,5)
+	var sprite_row = 1
+	if GameInfo.level_count <= 5:
+		sprite_row = GameInfo.level_count * 2 - 1
+	else:
+		sprite_row = rng.randi_range(1,5) * 2 - 1
 	
 	var left_wall = Vector2i(8, sprite_row)
 	var bottom_wall = Vector2i(9, sprite_row)
