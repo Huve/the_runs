@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rm43wwrhke2a"]
+
+[ext_resource type="AudioStream" uid="uid://bsp3tfwedmcrv" path="res://audio/LevelSong.mp3" id="1_aesqj"]
+
+[node name="bgmusicscene" type="Node"]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_aesqj")

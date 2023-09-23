@@ -1,5 +1,6 @@
 extends Node
 
+@onready var BGMusic = get_node("/root/BgMusic/GameMusic")
 
 func _ready():
 	# Connect button signals
@@ -12,3 +13,4 @@ func _on_high_scores_pressed():
 
 func _on_button_new_game_pressed():
 	get_tree().change_scene_to_file("res://Game.tscn")
+	BGMusic.play()

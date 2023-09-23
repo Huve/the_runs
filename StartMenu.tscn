@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1y7l6u5waa7r"]
+[gd_scene load_steps=4 format=3 uid="uid://d1y7l6u5waa7r"]
 
 [ext_resource type="Script" path="res://StartMenu.gd" id="1_ji4pt"]
 [ext_resource type="Texture2D" uid="uid://b1f2pb1uxrelw" path="res://images/toi3.PNG" id="2_hsjbc"]
+[ext_resource type="AudioStream" uid="uid://dbxg1gl4jjkwq" path="res://audio/MenuSong.mp3" id="3_dipst"]
 
 [node name="StartMenu" type="Node"]
 script = ExtResource("1_ji4pt")
@@ -53,6 +54,10 @@ grow_horizontal = 2
 scale = Vector2(1.04262, 1.13059)
 texture = ExtResource("2_hsjbc")
 stretch_mode = 3
+
+[node name="StartMenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dipst")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/ButtonHighScores" to="." method="_on_high_scores_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonNewGame" to="." method="_on_button_new_game_pressed"]

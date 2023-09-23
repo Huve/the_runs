@@ -2,6 +2,8 @@ extends Control
 
 @onready var GameInfo = get_node("/root/GameInfoNode")
 
+
+
 var level_score = 10
 
 func countdown_timer(score: float, time: float) -> int:
