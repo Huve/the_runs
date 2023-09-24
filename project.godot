@@ -13,7 +13,7 @@ config_version=5
 config/name="The Runs"
 run/main_scene="res://StartMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://poop-icon.png"
 
 [autoload]
 
