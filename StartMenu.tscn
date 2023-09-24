@@ -13,10 +13,10 @@ script = ExtResource("1_ji4pt")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -49.5
-offset_top = 50.0
-offset_right = 49.5
-offset_bottom = 81.0
+offset_left = -171.0
+offset_top = 270.0
+offset_right = -72.0
+offset_bottom = 301.0
 grow_horizontal = 2
 text = "High Scores"
 
@@ -24,9 +24,10 @@ text = "High Scores"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.0
-offset_right = 45.0
-offset_bottom = 31.0
+offset_left = -280.0
+offset_top = 270.0
+offset_right = -190.0
+offset_bottom = 301.0
 grow_horizontal = 2
 text = "New game"
 
@@ -47,13 +48,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -186.5
-offset_right = 186.5
-offset_bottom = 354.0
+offset_left = -277.0
+offset_right = 250.0
+offset_bottom = 282.0
 grow_horizontal = 2
 scale = Vector2(1.04262, 1.13059)
 texture = ExtResource("2_hsjbc")
-stretch_mode = 3
 
 [node name="StartMenuAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dipst")
